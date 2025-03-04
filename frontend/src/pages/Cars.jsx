@@ -86,6 +86,9 @@ const Cars = () => {
               <option>Station</option>
             </select>
           </div>
+          <div class="flex items-start justify-start pt-6">
+            <button onClick={applyFilter} class="h-10 bg-indigo-600 text-white rounded-md px-8 py-2 text-sm font-medium hover:bg-blue-700">Filter</button>
+          </div>
         </div>
       </div>
       <div class="flex gap-8">
@@ -155,7 +158,7 @@ const Cars = () => {
                   <option>Price: High to Low</option>
                   <option>Range: High to Low</option>
                 </select>
-                <span class="text-sm text-gray-500">24 cars found</span>
+                <span class="text-sm text-gray-500">{filterCar.length} cars found</span>
               </div>
               <div class="flex items-center space-x-2">
                 <button class="p-2 text-gray-500 hover:text-gray-600">
