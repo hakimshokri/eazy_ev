@@ -62,12 +62,11 @@ const Booking = () => {
   }
 
   const getRandomCarsBySegment = () => {
-    // Slice the cars array to get cars from index 0 to 18
     const carsSubset = cars.slice(0, 12);
   
     // Filter cars by segment and exclude the currently displayed cars
     const filteredCars = carsSubset.filter(car =>
-      car.segment === carInfo.segment && car.id !== carId
+      car.segment === carInfo.segment && car._id !== carId
     );
   
     // Shuffle the filtered list
@@ -79,9 +78,14 @@ const Booking = () => {
   useEffect(() => {
     if (cars.length > 0) {
       fetchCarInfo()
-      getRandomCarsBySegment()
     }
   }, [cars, carId])
+
+  useEffect(() => {
+    if (carInfo) {
+      getRandomCarsBySegment();
+    }
+  }, [carInfo]);
 
 
   // return carInfo ? (
@@ -197,7 +201,6 @@ const Booking = () => {
       </div>
     </main>
   )
-  // ) : null
 }
 
 export default Booking
